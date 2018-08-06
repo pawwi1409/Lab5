@@ -1,0 +1,20 @@
+[
+    {
+        "moviesId":1,
+        "moviesName":"Home Alone",
+        "moviesRating":4,
+        "moviesGenre":"Drama"
+    },
+    {
+        "moviesId":2,
+        "moviesName":"Interstellar",
+        "moviesRating":4,
+        "moviesGenre":"Fiction"
+    },
+    {
+        "moviesId":3,
+        "moviesName":"A Clockwork Orange",
+        "moviesRating":4,
+        "moviesGenre":"Sattire"
+    }
+] 

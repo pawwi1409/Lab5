@@ -1,0 +1,37 @@
+<form class="form-horizontal" [formGroup]="complexForm" (ngSubmit)="submitForm(complexForm.value)">
+  <div class="form-group" [ngClass]="{'has-error':!complexForm.controls['movieName'].valid}">
+    <label class="control-label col-sm-2" for="movieName">Movie Name:</label>
+    <div class="col-xs-3">
+      <input type="text" class="form-control" id="movieName" placeholder="Enter movie name" [formControl]="complexForm.controls['movieName']">
+      <div class="alert alert-danger" *ngIf="complexForm.controls['movieName'].touched && complexForm.controls['movieName'].value==null">Movie Name is required!!</div>
+      <div class="alert alert-danger" *ngIf="complexForm.controls['movieName'].dirty && !complexForm.controls['movieName'].valid">Movie Name should be only alphanumeric</div>
+    </div>
+  </div>
+  <div class="form-group" [ngClass]="{'has-error':!complexForm.controls['movieRating'].valid}">
+    <label class="control-label col-sm-2" for="movieRating">Give Rating:</label>
+    <div class="col-xs-3"> 
+      <input type="number" class="form-control" id="movieRating" placeholder="Give movie rating"[formControl]="complexForm.controls['movieRating']">
+      <div class="alert alert-danger" *ngIf="complexForm.controls['movieRating'].value==='' && complexForm.controls['movieRating'].touched">Movie Rating is required!!</div>
+      <div class="alert alert-danger" *ngIf="!complexForm.controls['movieRating'].valid && complexForm.controls['movieRating'].dirty">Rating needs to be a number: eg:2.5. Rating is on Scale 1-5</div>
+      
+    </div>
+  </div>
+  <div class="form-group" [ngClass]="{'has-error':!complexForm.controls['movieGenre'].valid}"> 
+    
+    <label class="control-label col-sm-2" for="movieGenre">Movie Genre:</label>
+    <div class="col-xs-3">
+    <select [formControl]="complexForm.controls['movieGenre']">
+      <option value="" selected disabled>--Select--</option>
+      <option >Drama</option>
+      <option>Fiction</option>
+      <option>Sattire</option>
+    </select>
+    <div class="alert alert-danger" *ngIf="!complexForm.controls['movieGenre'].valid && complexForm.controls['movieGenre'].touched">Movie Category is required!!</div>
+    </div>
+  </div>
+  <div class="form-group"> 
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-default">Add Movie</button>
+    </div>
+  </div>
+</form>
